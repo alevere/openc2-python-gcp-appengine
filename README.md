@@ -12,3 +12,12 @@
 10. cd openc2-python-gcp-appengine
 11. Run 'gcloud app deploy app.yaml'
 12. Select 'Y' to continue and eventually this message will appear in the console: 
+Deployed service [default] to [https://openc2pf2.uc.r.appspot.com]
+
+You can stream logs from the command line by running:
+  $ gcloud app logs tail -s default
+
+To view your application in the web browser run:
+  $ gcloud app browse
+  
+  13. 
