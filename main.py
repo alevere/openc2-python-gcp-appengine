@@ -7,7 +7,7 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def server_error():
-   return '500'
+   return  json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4)
 
 @app.route('/openc2', methods=['GET','POST'])
 def index():
