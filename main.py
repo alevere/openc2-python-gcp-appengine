@@ -11,10 +11,9 @@ def server_error():
 
 @app.route('/openc2', methods=['GET','POST'])
 def index():
-   response=''
-   response.data=json.dumps({'status': (200), 'status_text': 'success'}, sort_keys=True, indent=4)
-   response.headers['X-Request-ID'] = 'abcd-ef0123'
-   return response
+    data = json.dumps({'status': (200), 'status_text': 'success'}, sort_keys=True, indent=4)
+    response = app.response_class(response=data,status=200,mimetype='application/json')
+    return response
 
 if __name__ == '__main__':
    # Used when running locally only. When deploying to Google App
