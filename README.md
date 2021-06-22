@@ -10,7 +10,8 @@
 8. wget https://github.com/alevere/openc2-python-gcp-appengine/archive/refs/heads/main.zip
 9. unzip main.zip
 10. cd openc2-python-gcp-appengine
-11. Run 'gcloud app deploy app.yaml'
+11. Run 'gcloud app deploy app.yaml' and Authorize the request if prompted.
+    a. Note that it often takes 5 minutes to deploy
 12. Select 'Y' to continue and eventually this message will appear in the console: 
 Deployed service [default] to [https://openc2pf2.uc.r.appspot.com]
 
