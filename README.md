@@ -19,3 +19,4 @@
 12. Select Manage Repositories and make sure to select the GCP Cloud Source Repository you set up earlier
 13. Click the three dots and select create or add trigger
 14. The event will be push to branch and the build file is cloudbuild.yaml
+15. If the event doesnt run automatically, you can click RUN to manually run the build
