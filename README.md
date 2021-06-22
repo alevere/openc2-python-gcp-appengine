@@ -15,5 +15,5 @@
 8. Navigate to Cloud Build, then Settings and enable App Engine Admin
 9. Navigate to App Engine
 10. Click to Create App and select an appropriate region
-11. Denote the application as Python and Flexible?
+11. Open Cloud Build Triggers
 12. 
