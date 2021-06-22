@@ -22,3 +22,6 @@
 14. The event will be push to branch and the build file is cloudbuild.yaml
 15. If the event doesnt run automatically, you can click RUN to manually run the build
 16. In Cloud Build you should see a build number and a duration
+17. If it errors, go to App Engine and do
+   a. gcloud source repos clone {cloud source repo name}
+   b. 
