@@ -7,7 +7,7 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def server_error():
-    """ Return a friendly HTTP error. """
+   """ Return a friendly HTTP error. """
    print('Status: 500 Internal Server Error')
    print('Content-Type: application/openc2-rsp+json;version=1.0')
    print('')
