@@ -7,16 +7,14 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def server_error():
-   return  json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4)
+   return json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4),500
 
 @app.route('/openc2', methods=['GET','POST'])
 def index():
-   @after_this_request
-   def add_header(response):
-      response.headers['X-Foo'] = 'Parachute'
-      return response
-   return 'Hello World!'
-
+   response=''
+   response.data=json.dumps({'status': (200), 'status_text': 'success'}, sort_keys=True, indent=4)
+   response.headers['X-Request-ID'] = 'abcd-ef0123'
+   return response
 
 if __name__ == '__main__':
    # Used when running locally only. When deploying to Google App
