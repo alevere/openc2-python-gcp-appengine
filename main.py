@@ -1,5 +1,5 @@
 import flask
-import request
+import urllib.request
 import json
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
@@ -16,13 +16,12 @@ def server_error():
    return 0
 
 @app.route('/openc2', methods=['GET','POST'])
-def hello():
-    """ Return a friendly HTTP greeting. """
-    header_1 = request.headers.get('X-Request-ID')
-    header_2 = request.headers.get('Content-Type')
-    print(header_1)
-    print(header_2)
-    return "OpenC2!\n"
+def index():
+    @after_this_request
+    def add_header(response):
+        response.headers['X-Foo'] = 'Parachute'
+        return response
+    return 'Hello World!'
 
 
 if __name__ == '__main__':
