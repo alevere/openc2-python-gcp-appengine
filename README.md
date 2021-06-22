@@ -1,27 +1,12 @@
 # openc2-python-gcp-appengine
 
 1. Create a new project in Google Cloud Platform
-2. Register an SSH key with GCP Cloud Source Repositories
-3. Clone this repo to your local computer: 
-   a. mkdir appengine
-   b. git git clone https://github.com/alevere/openc2-python-gcp-appengine.git
-   c. cd openc2-python-gcp-appengine
-4. Push into Cloud Source Repositories, and repeat this whenever you update github
-   a. git remote add google ssh://{googleuser@domain.com}@source.developers.google.com:2022/p/{project-id}/r/{repo-name}
-   b. git push --all google
-5. Refresh the Cloud Source Repositories to see your files
-6. Prepare Cloud Build, starting with enabling APIs for appengine and cloudbuild for your project
-   a. Review https://cloud.google.com/source-repositories/docs/quickstart-triggering-builds-with-source-repositories#grant-app-engine_access-to-cloud_build
-7. Enable APIs for your project per https://console.cloud.google.com/flows/enableapi?apiid=appengine.googleapis.com,cloudbuild.googleapis.com&_ga=2.45333668.1893174837.1624365183-1882903627.1623695384
-8. Navigate to Cloud Build, then Settings and enable App Engine Admin
-9. Navigate to App Engine
-10. Click to Create App and select an appropriate region
-11. Open Cloud Build Triggers
-12. Select Manage Repositories and make sure to select the GCP Cloud Source Repository you set up earlier
-13. Click the three dots and select create or add trigger
-14. The event will be push to branch and the build file is cloudbuild.yaml
-15. If the event doesnt run automatically, you can click RUN to manually run the build
-16. In Cloud Build you should see a build number and a duration
-17. If it errors, go to App Engine and do
-   a. gcloud source repos clone {cloud source repo name}
-   b. 
+2. Navigate to App Engine
+3. Click to Create App and select an appropriate region
+4. If prompted select python and flexible as the AppEngine type
+5. Open cloud shell and run
+7. wget https://github.com/alevere/openc2-python-gcp-appengine/archive/refs/heads/main.zip
+8. unzip main.zip
+9. cd openc2-python-gcp-appengine
+10. Run 'gcloud app deploy app.yaml'
+11. 
