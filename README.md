@@ -9,4 +9,4 @@
 8. unzip main.zip
 9. cd openc2-python-gcp-appengine
 10. Run 'gcloud app deploy app.yaml'
-11. 
+11. Select 'Y' to continue and eventually this message will appear in the console: 
