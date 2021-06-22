@@ -6,8 +6,9 @@
    a. mkdir appengine
    b. git git clone https://github.com/alevere/openc2-python-gcp-appengine.git
    c. cd openc2-python-gcp-appengine
-4. Push into Cloud Source Repositories
+4. Push into Cloud Source Repositories, and repeat this whenever you update github
    a. git remote add google ssh://{googleuser@domain.com}@source.developers.google.com:2022/p/{project-id}/r/{repo-name}
+   b. git push --all google
 5. Refresh the Cloud Source Repositories to see your files
 6. Prepare Cloud Build, starting with enabling APIs for appengine and cloudbuild for your project
    a. Review https://cloud.google.com/source-repositories/docs/quickstart-triggering-builds-with-source-repositories#grant-app-engine_access-to-cloud_build
@@ -20,3 +21,4 @@
 13. Click the three dots and select create or add trigger
 14. The event will be push to branch and the build file is cloudbuild.yaml
 15. If the event doesnt run automatically, you can click RUN to manually run the build
+16. In Cloud Build you should see a build number and a duration
