@@ -1,11 +1,21 @@
 import flask
 import request
+import json
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = flask.Flask(__name__)
 
+@app.route('/', methods=['GET','POST'])
+def server_error():
+    """ Return a friendly HTTP error. """
+   print('Status: 500 Internal Server Error')
+   print('Content-Type: application/openc2-rsp+json;version=1.0')
+   print('')
+   print(json.dumps({'status': (500), 'status_text': 'Server error'}, sort_keys=True, indent=4))
+   print('')
+   return 0
 
-@app.route("/openc2", methods=["GET","POST"])
+@app.route('/openc2', methods=['GET','POST'])
 def hello():
     """ Return a friendly HTTP greeting. """
     header_1 = request.headers.get('X-Request-ID')
@@ -15,7 +25,7 @@ def hello():
     return "OpenC2!\n"
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # Used when running locally only. When deploying to Google App
     # Engine, a webserver process such as Gunicorn will serve the app. This
     # can be configured by adding an `entrypoint` to app.yaml.
