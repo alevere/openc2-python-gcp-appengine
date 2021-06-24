@@ -1,4 +1,5 @@
-import flask
+from flask import Flask
+from flask import request
 import urllib.request
 import json
 import subprocess
@@ -18,7 +19,7 @@ def server_error_two():
 
 @app.route('/openc2', methods=['POST'])
 def index():
-    action = request.args.post('action')
+    action = request.form.get('action')
     consumer_response=server_200('complete',json.loads('{"status":200}'))
     data = json.dumps(consumer_response, sort_keys=True, indent=4)
     response = app.response_class(response=data,status=200,mimetype='application/json')
