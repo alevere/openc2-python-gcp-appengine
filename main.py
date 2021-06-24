@@ -12,12 +12,18 @@ app = flask.Flask(__name__)
 def server_error():
    return json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4),500
 
-@app.route('/openc2', methods=['GET','POST'])
+@app.route('/openc2', methods=['GET'])
+def server_error():
+   return json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4),500
+
+@app.route('/openc2', methods=['POST'])
 def index():
+    action = request.args.post('action')
     consumer_response=server_200('complete',json.loads('{"status":200}'))
     data = json.dumps(consumer_response, sort_keys=True, indent=4)
     response = app.response_class(response=data,status=200,mimetype='application/json')
-    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['X-Request-ID'] = '0bc6dc48-0eaa-42a8-802f-0acbb3e3fa00'
+    response.headers['action'] = action
     return response
    
 # tell producer things were ok
