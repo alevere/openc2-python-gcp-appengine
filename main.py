@@ -13,7 +13,7 @@ def server_error():
    return json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4),500
 
 @app.route('/openc2', methods=['GET'])
-def server_error():
+def server_error_two():
    return json.dumps({'status': (501), 'status_text': 'Server error, not implemented'}, sort_keys=True, indent=4),500
 
 @app.route('/openc2', methods=['POST'])
