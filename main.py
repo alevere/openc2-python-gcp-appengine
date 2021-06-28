@@ -19,13 +19,14 @@ def server_error_two():
 
 @app.route('/openc2', methods=['POST'])
 def index():
-    client_data = request.get_json(force = True) 
+    client_data = request.get_json(force = True)
+    action = client_data['action']
     consumer_response=server_200('complete',json.loads('{"status":200}'))
     data = json.dumps(consumer_response, sort_keys=True, indent=4)
     response = app.response_class(response=data,status=200,mimetype='application/json')
     response.headers['X-Request-ID'] = '0bc6dc48-0eaa-42a8-802f-0acbb3e3fa00'
     response.headers['Cache-control'] = 'no-cache'
-    response.headers['action'] = client_data
+    response.headers['action'] = action
     return response
 
 #function to handle GET, POST, cli request and make calls to other functions to execute commands
