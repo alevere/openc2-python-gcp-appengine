@@ -27,12 +27,13 @@ def index():
     #response = app.response_class(response=data,status=200,mimetype='application/json')
     response.headers['X-Request-ID'] = '0bc6dc48-0eaa-42a8-802f-0acbb3e3fa00'
     response.headers['Cache-control'] = 'no-cache'
+    response.headers['action'] = action
     return response
 
 #function to handle GET, POST, cli request and make calls to other functions to execute commands
 #figure out exactly what we want this function to do as far as parsing
 def request_handler():
-conformance=0
+   conformance=0
    openc2_actions=['query', 'deny', 'allow', 'update', 'delete']
    openc2_targets=['file', 'ipv4_net', 'ipv6_net', 'ipv4_connection', 'ipv6_connection', 'features', 'slpf:rulenumber']
    openc2_query=['versions','profiles','pairs','rate_limit']
