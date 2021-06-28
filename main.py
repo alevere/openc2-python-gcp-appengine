@@ -19,13 +19,27 @@ def server_error_two():
 
 @app.route('/openc2', methods=['POST'])
 def index():
-    action = request.form.get('action')
+    client_data = request.get_json(force = True) 
     consumer_response=server_200('complete',json.loads('{"status":200}'))
     data = json.dumps(consumer_response, sort_keys=True, indent=4)
     response = app.response_class(response=data,status=200,mimetype='application/json')
     response.headers['X-Request-ID'] = '0bc6dc48-0eaa-42a8-802f-0acbb3e3fa00'
-    response.headers['action'] = action
+    response.headers['Cache-control'] = 'no-cache'
+    response.headers['action'] = client_data
     return response
+
+#function to handle GET, POST, cli request and make calls to other functions to execute commands
+#figure out exactly what we want this function to do as far as parsing
+def request_handler():
+conformance=0
+   openc2_actions=['query', 'deny', 'allow', 'update', 'delete']
+   openc2_targets=['file', 'ipv4_net', 'ipv6_net', 'ipv4_connection', 'ipv6_connection', 'features', 'slpf:rulenumber']
+   openc2_query=['versions','profiles','pairs','rate_limit']
+   openc2_response_requested=['none','ack','status','complete']
+   complete_response="complete"
+   openc2_query_versions=['1.0']
+   the_action=""
+   the_target=""
    
 # tell producer things were ok
 def server_200(complete,resultant):
